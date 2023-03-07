@@ -2,8 +2,8 @@ import { ToDoTypes } from '@/core/constants/ToDoStatusConstants'
 
 export type ToDoListParams = {
   id: number
-  title?: string
+  title: string
   description?: string
-  status?: ToDoTypes
+  status: ToDoTypes
   selectedStatus?: ToDoTypes
 }

@@ -47,6 +47,7 @@ export default class ToDoListView extends Vue {
     const form = initToDoListForm()
     const tasksComputed = getTasksDataComputed()
     const tasksDisplay = getTasksDataDisplayComputed()
+    const statuses = ToDoTypes
 
     const closeCreateModal = (): void => {
       form.title.value = undefined
@@ -61,9 +62,9 @@ export default class ToDoListView extends Vue {
 
       const task: ToDoListParams = {
         id: id.value,
-        title: form.title.value,
+        title: form.title.value ?? 'default' + id.value,
         description: form.description.value,
-        status: form.status.value,
+        status: form.status.value ?? statuses.Opened,
       }
       return dispatchCreateTask(task)
     }

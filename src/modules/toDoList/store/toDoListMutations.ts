@@ -6,8 +6,8 @@ import { store } from '@/store/store'
 
 function updateTask(
   source: ToDoListParams,
+  selectedType: ToDoTypes,
   target?: ToDoListParams,
-  selectedType?: ToDoTypes,
 ): void {
   if (!target) {
     return
@@ -28,6 +28,6 @@ export const toDoListMutation: MutationTree<State> = {
     const draggedItem = state.toDoTasks.find((e) => {
       return e.id === task?.id
     })
-    updateTask(task, draggedItem, store.state.selectedType)
+    updateTask(task, store.state.selectedType, draggedItem)
   },
 }
