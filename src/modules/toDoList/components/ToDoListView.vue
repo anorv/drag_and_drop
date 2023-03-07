@@ -69,16 +69,24 @@ export default class ToDoListView extends Vue {
       return dispatchCreateTask(task)
     }
     const checkTypes = (typeToDrop?: ToDoTypes): void => {
-      if (typeToDrop === ToDoTypes.Opened) {
-        form.isDisabledAreaForOpen.value = true
-      } else if (typeToDrop === ToDoTypes.Done) {
-        form.isDisabledAreaForDone.value = true
-      } else if (typeToDrop === ToDoTypes.Closed) {
-        form.isDisabledAreaForClose.value = true
-      } else {
-        form.isDisabledAreaForIsProgress.value = true
+      switch (typeToDrop) {
+        case ToDoTypes.Opened:
+          form.isDisabledAreaForOpen.value = true
+          break
+        case ToDoTypes.Done:
+          form.isDisabledAreaForDone.value = true
+          break
+        case ToDoTypes.Closed:
+          form.isDisabledAreaForClose.value = true
+          break
+        case ToDoTypes.InProgress:
+          form.isDisabledAreaForIsProgress.value = true
+          break
+        default:
+          throw new Error('Type undefined')
       }
     }
+
     const clearDisableTypes = (): void => {
       form.isDisabledAreaForOpen.value = false
       form.isDisabledAreaForDone.value = false
