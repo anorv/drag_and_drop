@@ -1,27 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <ToDoListView :to-do-list="state.toDoList" />
 </template>
-
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import ToDoListView from './modules/toDoList/components/ToDoListView.vue'
+import { Options, setup, Vue } from 'vue-class-component'
+import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
 
 @Options({
   components: {
-    HelloWorld,
+    ToDoListView,
   },
 })
-export default class App extends Vue {}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+export default class App extends Vue {
+  state = setup(() => {
+    const { t } = useI18n()
+    const toDoList = ref<string>(t('NOTIFICATIONS.TO_DO_LIST'))
+    return {
+      toDoList,
+    }
+  })
 }
-</style>
+</script>
