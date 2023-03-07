@@ -7,7 +7,6 @@
   />
   <ToDoListDisplay
     :tasks-display="state.tasksDisplay"
-    :is-disabled-area="state.isDisabledArea"
     :form="state.form"
     @start-drag-event="state.startDragEvent"
     @on-drop-event="state.onDropItemEvent"

@@ -53,7 +53,6 @@ import { ToDoListForm } from '@/modules/toDoList/model/toDoListForm'
 })
 export default class ToDoListDisplay extends Vue {
   @Prop() tasksDisplay?: ToDoListDisplayParams
-  @Prop() isDisabledArea!: boolean
   @Prop() form!: ToDoListForm
 
   state = setup(() => {
