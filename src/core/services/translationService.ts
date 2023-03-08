@@ -6,7 +6,7 @@ const messages = {
       TO_DO_LIST: 'Darbų sąrašas',
       PICK_UP_STATUS: 'Pasirinkite statusą',
       OPENED: 'Atidarytos užduotys',
-      IN_PROGRESS: 'Vykdomos užduotis',
+      IN_PROGRESS: 'Vykdomos užduotys',
       DONE: 'Baigtos užduotys',
       CLOSED: 'Uždarytos užduotys',
     },
